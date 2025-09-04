@@ -5,15 +5,25 @@ import { inngest } from "./inngest";
 import {functions as inngestFunctions} from "./inngest/function"
 import { logger } from "./utils/logger";
 import connectDB from "./utils/db";
+import dotenv from "dotenv";
+import helmet from "helmet";
+import cors from "cors";
+import morgan from "morgan";
 
+//.env configuration
+dotenv.config()
 const app = express()
 
 
+//middlewares
 app.use(express.json());
+app.use(cors());
+app.use(helmet());                      //set some security headers, use for security
+app.use(morgan("dev"));                 //for logging http requests in console (maintaining activity logs)
+
 app.use("/api/inngest", serve({ client: inngest, functions:inngestFunctions }));
 
 
-const PORT = 3000;
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Hello World')
