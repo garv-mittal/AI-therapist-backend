@@ -9,11 +9,13 @@ import dotenv from "dotenv";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
+import authRouter from "./routes/auth"
 
 //.env configuration
 dotenv.config()
 const app = express()
 
+// console.log(`mongodb uri is: ${process.env.MONGODB_URI}`)
 
 //middlewares
 app.use(express.json());
@@ -25,9 +27,7 @@ app.use("/api/inngest", serve({ client: inngest, functions:inngestFunctions }));
 
 
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello World')
-})
+app.use("/auth",authRouter);
 
 const startServer = async () => {
     try {
