@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
-import authRouter from "./routes/auth"
+import authRouter from "./routes/auth.routes"
 
 //.env configuration
 dotenv.config()
