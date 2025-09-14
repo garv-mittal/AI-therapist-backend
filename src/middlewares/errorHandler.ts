@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { logger } from "../utils/logger";
 
+//used to throw error
 export class AppError extends Error {
   statusCode: number;
   status: string;
@@ -16,6 +17,7 @@ export class AppError extends Error {
   }
 }
 
+//used as a middleware to catch errors
 export const errorHandler = (
   err: Error | AppError,
   req: Request,
