@@ -1,7 +1,10 @@
 import { Inngest } from "inngest";
 
-// Create a client to send and receive events
-export const inngest = new Inngest({ id: "ai-therapist" });
+// Initialize the Inngest client
+export const inngest = new Inngest({
+  id: "ai-therapy-agent",
+  // You can add your Inngest signing key here if you have one
+});
 
-// Create an empty array where we'll export future Inngest functions
-export const functions = [];
+// Export the functions array (this will be populated by the functions.ts file)
+export const functions: any[] = [];

@@ -11,7 +11,7 @@ import { Types } from "mongoose";
 
 // Initialize Gemini API
 const genAI = new GoogleGenerativeAI(
-  process.env.GEMINI_API_KEY
+  process.env.GEMINI_API_KEY!
 );
 
 // Create a new chat session
