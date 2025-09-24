@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { ChatSession, IChatSession } from "../models/chatSession";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { v4 as uuidv4 } from "uuid";
+const { v4: uuidv4 } = require("uuid");
 import { logger } from "../utils/logger";
 import { inngest } from "../inngest/client";
 import { User } from "../models/user";
